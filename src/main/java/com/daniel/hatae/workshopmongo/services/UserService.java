@@ -36,6 +36,17 @@ public class UserService {
 		repo.deleteById(id);
 	}
 	
+	public User update(User obj) {
+		User newObj = findById(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
+	}
+	
+	private void updateData(User newObj, User obj) {
+		newObj.setName(obj.getName());
+		newObj.setEmail(obj.getEmail());
+	}
+
 	/*
 	 *  um item um pouco polemico porque poderia ser criado no UserDTO.
 	 *  Pode haver projetos que é necessário recuperar os dados para utilizar no método de serviços.
