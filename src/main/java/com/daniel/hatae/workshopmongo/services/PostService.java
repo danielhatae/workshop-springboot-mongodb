@@ -1,5 +1,6 @@
 package com.daniel.hatae.workshopmongo.services;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,5 +34,11 @@ public class PostService {
 	
 	public List<Post> searchTitle(String text){
 		return repo.searchTitle(text);
+	}
+	
+	public List<Post> fullsearch(String text, Date minDate, Date maxDate){
+		//Para pegar a data máxima até as 23:59:50
+		maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 *100);
+		return repo.fullSearch(text, minDate, maxDate);
 	}
 }
