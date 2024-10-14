@@ -11,6 +11,10 @@ import com.daniel.hatae.workshopmongo.domain.Post;
 public interface PostRepository extends MongoRepository<Post, String> {
 	
 	//List<Post> findByTitleContaining(String text); 
+	/*
+	 * https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/
+     * https://docs.spring.io/spring-data/data-document/docs/current/reference/html/
+	 */
 	List<Post> findByTitleContainingIgnoreCase(String text); 
 
 }
