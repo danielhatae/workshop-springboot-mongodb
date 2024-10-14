@@ -31,6 +31,11 @@ public class UserService {
 		return repo.insert(obj);
 	}
 	
+	public void delete(String id) {
+		findById(id);
+		repo.deleteById(id);
+	}
+	
 	/*
 	 *  um item um pouco polemico porque poderia ser criado no UserDTO.
 	 *  Pode haver projetos que é necessário recuperar os dados para utilizar no método de serviços.
